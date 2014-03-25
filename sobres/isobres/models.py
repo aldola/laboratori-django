@@ -16,7 +16,7 @@ class Reserva(models.Model):
 	data_ent = models.DateTimeField()
 	data_sort = models.DateTimeField()
 	def __unicode__(self):
-		return self.client.name
+		return self.client.name+" - "+self.habitacio
 		
 		
 class Habitacions(models.Model):
@@ -25,7 +25,7 @@ class Habitacions(models.Model):
 	data_ent = models.DateTimeField()
 	data_sort = models.DateTimeField()
 	def __unicode__(self):
-		return self.client.name
+		return self.reserva.name+" - "+self.
 		
 		
 class Hostal(models.Model):
