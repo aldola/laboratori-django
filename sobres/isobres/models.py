@@ -8,8 +8,25 @@ class Client(models.Model):
 	tel = models.TextField(max_length=100)
 	def __unicode__(self):
 		return self.name
-		
-		
+
+
+class Hostal(models.Model):
+	nom =  models.TextField(max_length=100)
+	carrer = models.TextField(max_length=100)
+	telefon = models.TextField(max_length=9)
+	def __unicode__(self):
+		return self.nom	
+	
+
+class Habitacio(models.Model):
+	hostal = models.ForeignKey(Hostal)
+	pis = models.TextField(max_length=1)
+	porta = models.TextField(max_length=2)
+	preu_nit = models.TextField(max_length=4)
+	def __unicode__(self):
+		return self.hostal.name+" - "+self.pis+" - "+self.porta
+			
+	
 class Reserva(models.Model):
 	habitacio =  models.ForeignKey(Habitacio)
 	client =  models.ForeignKey(Client)
@@ -19,21 +36,9 @@ class Reserva(models.Model):
 		return self.client.name+" - "+self.habitacio
 		
 		
-class Habitacio(models.Model):
-	hostal = models.ForeignKey(Hostal)
-	pis = models.TextField(max_length=1)
-	porta = models.TextField(max_length=2)
-	preu_nit = models.TextField(max_length=4)
-	def __unicode__(self):
-		return self.hostal.name+" - "+self.pis+" - "+self.porta
+
 		
-		
-class Hostal(models.Model):
-	nom =  models.TextField(max_length=100)
-	carrer = models.TextField(max_length=100)
-	telefon = models.TextField(max_length=9)
-	def __unicode__(self):
-		return self.nom
+
 
 
 
