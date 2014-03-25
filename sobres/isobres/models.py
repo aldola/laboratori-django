@@ -20,21 +20,20 @@ class Reserva(models.Model):
 		
 		
 class Habitacions(models.Model):
-	habitacio =  models.ForeignKey(Habitacio)
-	client =  models.ForeignKey(Client)
-	data_ent = models.DateTimeField()
-	data_sort = models.DateTimeField()
+	hostal = models.ForeignKey(Hostal)
+	pis = models.TextField(max_length=1)
+	porta = models.TextField(max_length=2)
+	preu_nit = models.TextField(max_length=4)
 	def __unicode__(self):
-		return self.reserva.name+" - "+self.
+		return self.hostal.name+" - "+self.pis+" - "+self.porta
 		
 		
 class Hostal(models.Model):
-	habitacio =  models.ForeignKey(Habitacio)
-	client =  models.ForeignKey(Client)
-	data_ent = models.DateTimeField()
-	data_sort = models.DateTimeField()
+	nom =  models.TextField(max_length=100)
+	carrer = models.TextField(max_length=100)
+	telefon = models.TextField(max_length=9)
 	def __unicode__(self):
-		return self.client.name
+		return self.nom
 
 
 
