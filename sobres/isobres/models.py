@@ -19,7 +19,7 @@ class Reserva(models.Model):
 		return self.client.name+" - "+self.habitacio
 		
 		
-class Habitacions(models.Model):
+class Habitacio(models.Model):
 	hostal = models.ForeignKey(Hostal)
 	pis = models.TextField(max_length=1)
 	porta = models.TextField(max_length=2)
