@@ -1,3 +1,3 @@
 from django.contrib import admin
-from isobres.models import Sobre
-admin.site.register(Sobre)
+from isobres.models import Client
+admin.site.register(Client)
