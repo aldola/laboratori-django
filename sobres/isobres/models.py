@@ -2,20 +2,55 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-
-class Donor(models.Model):
-        name = models.CharField(max_length=40)
-        def __unicode__(self):
-                return self.name
-
-
-class Sobre(models.Model):
-	date = models.DateTimeField()
-	amount = models.IntegerField()
-	concept = models.TextField(max_length=100)
-	donor = models.ForeignKey(Donor)
-	user = models.ForeignKey(User)
+class Client(models.Model):
+	name = models.TextField(max_length=100)
+	direction = models.TextField(max_length=100)
+	tel = models.TextField(max_length=100)
 	def __unicode__(self):
-		return self.donor.name+" - "+self.concept
+		return self.name
+		
+		
+class Reserva(models.Model):
+	habitacio =  models.ForeignKey(Habitacio)
+	client =  models.ForeignKey(Client)
+	data_ent = models.DateTimeField()
+	data_sort = models.DateTimeField()
+	def __unicode__(self):
+		return self.client.name
+		
+		
+class Habitacions(models.Model):
+	habitacio =  models.ForeignKey(Habitacio)
+	client =  models.ForeignKey(Client)
+	data_ent = models.DateTimeField()
+	data_sort = models.DateTimeField()
+	def __unicode__(self):
+		return self.client.name
+		
+		
+class Hostal(models.Model):
+	habitacio =  models.ForeignKey(Habitacio)
+	client =  models.ForeignKey(Client)
+	data_ent = models.DateTimeField()
+	data_sort = models.DateTimeField()
+	def __unicode__(self):
+		return self.client.name
+
+
+
+#class Donor(models.Model):
+#        name = models.CharField(max_length=40)
+#        def __unicode__(self):
+#                return self.name
+
+
+#class Sobre(models.Model):
+#	date = models.DateTimeField()
+#	amount = models.IntegerField()
+#	concept = models.TextField(max_length=100)
+#	donor = models.ForeignKey(Donor)
+#	user = models.ForeignKey(User)
+#	def __unicode__(self):
+#		return self.donor.name+" - "+self.concept
 
 
