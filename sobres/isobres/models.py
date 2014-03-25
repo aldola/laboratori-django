@@ -3,26 +3,25 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Client(models.Model):
-	name = models.TextField(max_length=100)
-	direction = models.TextField(max_length=100)
-	tel = models.TextField(max_length=100)
+	nom = models.CharField(max_length=100)
+	direccio = models.TextField(max_length=100)
+	telefon = models.CharField(max_length=100)
 	def __unicode__(self):
-		return self.name
+		return self.nom
 
 
 class Hostal(models.Model):
 	nom =  models.TextField(max_length=100)
-	carrer = models.TextField(max_length=100)
-	telefon = models.TextField(max_length=9)
+	direccio = models.TextField(max_length=100)
+	telefon = models.CharField(max_length=12)
 	def __unicode__(self):
 		return self.nom	
 	
 
 class Habitacio(models.Model):
 	hostal = models.ForeignKey(Hostal)
-	pis = models.TextField(max_length=1)
-	porta = models.TextField(max_length=2)
-	preu_nit = models.TextField(max_length=4)
+	numero_habitacio = models.CharField(max_length=3)
+	preu_nit = models.CharField(max_length=6)
 	def __unicode__(self):
 		return self.hostal.name+" - "+self.pis+" - "+self.porta
 			
