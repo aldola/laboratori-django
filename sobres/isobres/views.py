@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 def mainpage(request):
 	template = get_template('mainpage.html')
 	variables = Context({
-		'titlehead': 'Sobres aPP',
-		'pagetitle': 'Welcome to the Sobres aPPlication',
+		'titlehead': 'Reserves aPP',
+		'pagetitle': 'Welcome to the reserves aPPlication',
 		'contentbody': 'Managing non legal funding since 2013',
 		'user' : request.user
 	})
@@ -21,11 +21,11 @@ def userpage(request, username):
 	except:
 		raise Http404('User not found.')
 
-	sobres = user.sobre_set.all()
+	reserves = user.reserva_set.all()
 	template = get_template('userpage.html')
 	variables = Context({
 		'username': username,
-		'sobres': sobres
+		'reserves': reserves
 		})
 	output = template.render(variables)
 	return HttpResponse(output)
