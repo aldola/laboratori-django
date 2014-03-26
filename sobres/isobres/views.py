@@ -39,10 +39,19 @@ def userpage(request, username):
 
 
 def reserves(request):
-	reserves = Reserva.objects.all()
+	reserva = Reserva.objects.get()
 	template = get_template('reserves.html')
 	variables = Context({
 		'reserves': reserves
+		})
+	output = template.render(variables)
+	return HttpResponse(output)
+
+def reserva(request, idres):
+	reserva = Reserva.objects.get(id=idres)
+	template = get_template('reserva.html')
+	variables = Context({
+		'reserva': reserva
 		})
 	output = template.render(variables)
 	return HttpResponse(output)
