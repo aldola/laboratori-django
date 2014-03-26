@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Client(models.Model):
-	nom = models.CharField(max_length=100)
+	nom = models.ForeignKey(User)
 	direccio = models.TextField(max_length=100)
 	telefon = models.CharField(max_length=100)
 	def __unicode__(self):
@@ -32,7 +32,7 @@ class Reserva(models.Model):
 	data_ent = models.DateTimeField()
 	data_sort = models.DateTimeField()
 	def __unicode__(self):
-		return self.client.nom+" - "+self.habitacio.numero_habitacio+" - "+self.habitacio.hostal.nom
+		return self.client.nom.username+" - "+self.habitacio.numero_habitacio+" - "+self.habitacio.hostal.nom
 		
 		
 
@@ -55,5 +55,3 @@ class Reserva(models.Model):
 #	user = models.ForeignKey(User)
 #	def __unicode__(self):
 #		return self.donor.name+" - "+self.concept
-
-
