@@ -3,11 +3,12 @@ from django.http import HttpResponse, Http404
 from django.template import Context
 from django.template.loader import get_template
 from django.contrib.auth.models import User
+    
 def mainpage(request):
 	template = get_template('mainpage.html')
 	variables = Context({
-		'titlehead': 'Reserves aPP',
-		'pagetitle': 'Welcome to the reserves aPPlication',
+		'titlehead': 'Reserves app',
+		'pagetitle': 'Welcome to the reserves application',
 		'contentbody': 'Managing non legal funding since 2013',
 		'user' : request.user
 	})
