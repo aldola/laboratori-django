@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title> Reserva </title>
+  </head>
+  <body>
+    <h1>Reserva</h1>
+    {% if reserva %}
+    <ul>
+    <li>
+    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    </li>
+    </ul>
+    {% else %}
+    <p>Error reserva no trobada.</p>
+    {% endif %}
+  </body>
+</html>
