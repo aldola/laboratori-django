@@ -5,10 +5,10 @@
   <body>
     <h1>{{ pagetitle }}</h1>
     {% if user.username %}
-    <p>Benvingut {{ user.username }}!
+    <p>Benvingut {{ user.username }}! <BR>
     Aquí podrà gestionar els seus sobres!</p>
     {% else %}
-    <p>Usuari no identificat:
+    <p>Usuari no identificat: <BR>
     Obligatori fer <a href="/login/">log in</a>
     per gestionar Reserves.</p>
     {% endif %}
