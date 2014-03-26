@@ -23,7 +23,7 @@ class Habitacio(models.Model):
 	numero_habitacio = models.CharField(max_length=3)
 	preu_nit = models.CharField(max_length=6)
 	def __unicode__(self):
-		return self.hostal.name+" - "+self.pis+" - "+self.porta
+		return self.hostal.nom+" - "+self.numero_habitacio+" - "+self.preu_nit
 			
 	
 class Reserva(models.Model):
@@ -32,7 +32,7 @@ class Reserva(models.Model):
 	data_ent = models.DateTimeField()
 	data_sort = models.DateTimeField()
 	def __unicode__(self):
-		return self.client.name+" - "+self.habitacio
+		return self.client.nom+" - "+self.habitacio.numero_habitacio+" - "+self.habitacio.hostal.nom
 		
 		
 
