@@ -6,7 +6,7 @@
     <h1>{{ pagetitle }}</h1>
     {% if user.username %}
     <p>Benvingut {{ user.username }}! <BR>
-    Aquí podrà gestionar els seus sobres!</p>
+    Aquí podrà gestionar les teves <a href="/user/{{ user }}">reserves</a>!</p>
     {% else %}
     <p>Usuari no identificat: <BR>
     Obligatori fer <a href="/login/">log in</a>
