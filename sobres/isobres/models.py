@@ -7,7 +7,7 @@ class Client(models.Model):
 	direccio = models.TextField(max_length=100)
 	telefon = models.CharField(max_length=100)
 	def __unicode__(self):
-		return self.nom
+		return self.nom.username
 
 
 class Hostal(models.Model):
