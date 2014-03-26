@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title> Reserves</title>
+  </head>
+  <body>
+    <h1>Reserves</h1>
+    {% if reserves %}
+    <ul>
+    {% for reserva in reserves %}
+    <li>
+    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No ha realitzat cap reserva.</p>
+    {% endif %}
+  </body>
+</html>

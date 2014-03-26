@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title> Clients</title>
+  </head>
+  <body>
+    <h1>Clients</h1>
+    {% if clients %}
+    <ul>
+    {% for client in clients %}
+    <li>
+    {{client.nom.username}} - {{client.direccio}} - {{client.telefon}}
+    </li>
+    {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hi ha cap client.</p>
+    {% endif %}
+  </body>
+</html>
