@@ -8,7 +8,7 @@
     <ul>
     {% for habitacio in habitacions %}
     <li>
-    {{habitacio.hostal.nom}} - {{habitacio.numero_habitacio}} - {{habitacio.preu_nit}}
+    <a href="/habitacions/{{ habitacio.id }}/"> {{habitacio.hostal.nom}}({{habitacio.numero_habitacio}}) </a> 
     </li>
     {% endfor %}
     </ul>

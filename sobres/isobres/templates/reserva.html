@@ -7,7 +7,10 @@
     {% if reserva %}
     <ul>
     <li>
-    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    {{reserva.habitacio.hostal.nom}} - {{reserva.client.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    </li>
+    <li>
+    <a href="/reserves/">tornar</a>
     </li>
     </ul>
     {% else %}

@@ -8,7 +8,7 @@
     <ul>
     {% for reserva in reserves %}
     <li>
-    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    <a href="/reserves/{{ reserva.id }}/"> {{reserva.client.nom}} ({{ reserva.data_ent}}) </a>
     </li>
     {% endfor %}
     </ul>

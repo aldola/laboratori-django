@@ -2,6 +2,9 @@ from django.conf.urls import patterns, include, url
 from isobres.views import *
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
+from rest_framework.urlpatterns import format_suffix_patterns
+
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -16,13 +19,17 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', mainpage, name='home'),
     url(r'^user/(\w+)/$', userpage),
-    url(r'^reserves/', reserves),
     url(r'^reserves/(\w+)/$', reserva),
-    url(r'^habitacions/', habitacions),
+    url(r'^reserves', reserves),
     url(r'^habitacions/(\w+)/$', habitacio),
-    url(r'^clients/', clients),
+    url(r'^habitacions', habitacions),
     url(r'^clients/(\w+)/$', client),
-    url(r'^hostals/', hostals),
+    url(r'^clients', clients),
     url(r'^hostals/(\w+)/$', hostal),
-    url(r'^login/$','django.contrib.auth.views.login'),
+    url(r'^hostals', hostals),
+    url(r'^login/$','django.contrib.auth.views.login'), 
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
 )
+
+urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'html', 'xml'])

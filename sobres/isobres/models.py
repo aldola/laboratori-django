@@ -33,13 +33,6 @@ class Reserva(models.Model):
 	data_sort = models.DateTimeField()
 	def __unicode__(self):
 		return self.client.nom.username+" - "+self.habitacio.numero_habitacio+" - "+self.habitacio.hostal.nom
-		
-		
-
-		
-
-
-
 
 #class Donor(models.Model):
 #        name = models.CharField(max_length=40)
