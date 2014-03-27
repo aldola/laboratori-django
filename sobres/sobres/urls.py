@@ -28,7 +28,7 @@ urlpatterns = patterns('',
     url(r'^hostals/(\w+)/$', hostal),
     url(r'^hostals', hostals),
     url(r'^login/$','django.contrib.auth.views.login'), 
-    url(r'^usuarinou/$','principal.views.nou_usuario'),
+    url(r'^usuarinou/$','principal.views.nou_usuari'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 )
