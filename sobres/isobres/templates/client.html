@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title> Client</title>
+  </head>
+  <body>
+    <h1>Client</h1>
+    {% if client %}
+    <ul>
+    <li>
+    nom: {{client.nom.username}} 
+    </li>
+    <li>
+    telefon: {{client.telefon}} 
+    </li>
+    <li>
+    direccio: {{client.direccio}} 
+    </li>
+    </ul>
+    <a href="/clients"> tornar </a>
+    {% else %}
+    <p>error client no trobat.</p>
+    <a href="/clients"> tornar </a>
+    {% endif %}
+  </body>
+</html>

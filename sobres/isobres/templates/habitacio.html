@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title> Habitacio </title>
+  </head>
+  <body>
+    <h1>Habitacio </h1>
+    <ul>
+    {% if habitacio %}
+    <li>
+    hostal: {{habitacio.hostal.nom}} 
+    </li>
+    <li>
+    habitacio: {{habitacio.numero_habitacio}} 
+    </li>
+    <li>
+    preu: {{habitacio.preu_nit}} €/nit 
+    </li>
+    </ul>
+    <a href="/habitacions"> tornar </a>
+    {% else %}
+    <p>error habitacio no trobada.</p>
+    <a href="/habitacions"> tornar </a>
+    {% endif %}
+  </body>
+</html>

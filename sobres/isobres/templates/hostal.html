@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title> Hostal</title>
+  </head>
+  <body>
+    <h1>Hostal</h1>
+    {% if hostal %}
+    <ul>
+    <li>
+    nom: {{ hostal.nom }}
+    </li>
+    <li>
+    direccio: {{ hostal.direccio }}
+    </li>
+    <li>
+    telefon: {{ hostal.telefon }}
+    </li>
+    </ul>
+    <a href="/hostals"> tornar </a>
+    {% else %}
+    <p>error hostal no trobat</p>
+    <a href="/hostals"> tornar </a>
+    {% endif %}
+  </body>
+</html>
