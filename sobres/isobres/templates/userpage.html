@@ -9,11 +9,13 @@
     {% for reserva in reserves %}
     <li>
     {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    <a href="/"> tornar </a>
     </li>
     {% endfor %}
     </ul>
     {% else %}
     <p>No ha realitzat cap reserva.</p>
+    <a href="/"> tornar </a>
     {% endif %}
   </body>
 </html>

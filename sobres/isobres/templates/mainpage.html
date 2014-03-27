@@ -7,10 +7,12 @@
     {% if user.username %}
     <p>Benvingut {{ user.username }}! <BR>
     Aquí podrà gestionar les teves <a href="/user/{{ user }}">reserves</a>!</p>
+    <a href="/logout">logout</a></p>
     {% else %}
     <p>Usuari no identificat: <BR>
-    Obligatori fer <a href="/login/">log in</a>
-    per gestionar Reserves.</p>
+    Obligatori <a href="/login/"> identificarse </a> per gestionar Reserves. <BR>
+    Si no estas registrat pots <a href="/signup"> registrarte </a>.
+    </p>
     {% endif %}
   </body>
 </html>
