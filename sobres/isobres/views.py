@@ -10,6 +10,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.core.context_processors import csrf
     
 def mainpage(request):
 	template = get_template('mainpage.html')
@@ -138,4 +139,4 @@ def nou_usuari(request):
 			return HttpResponseRedirect('/')
 	else:
 		formulari = UserCreationForm()
-		return render_to_response('nouusuari.html',{'formulari':formulari},context_instance=RequestContext(request))
+		return render_to_response('nouusuari.html', RequestContext(request, {}))
