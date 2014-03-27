@@ -141,4 +141,4 @@ def nou_usuari(request):
 			return HttpResponseRedirect('/')
 	else:
 		formulari = UserCreationForm()
-	return render_to_response('nouusari.html', RequestContext(request, {}))
+	return render_to_response('nouusari.html', {'formulari':formulari},context_instance=RequestContext(request))
