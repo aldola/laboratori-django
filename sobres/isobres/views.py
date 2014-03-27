@@ -97,82 +97,128 @@ def reserves(request, format=None):
 		output = template.render(variables)
 		return HttpResponse(output)
 	elif format == 'json':
-		reserves.append(reserves[0])
-		reserves.append(reserves[0])
 		data = serializers.serialize('json', reserves)
 		return HttpResponse(data, mimetype='application/json')
 	elif format == 'xml':
-		reserves.append(reserves[1])
-		reserves.append(reserves[1])
 		data = serializers.serialize('xml', reserves)
 		return HttpResponse(data, mimetype='application/xml')
 
-def reserva(request, idres, format=None):
-	reserva = Reserva.objects.get(id=idres)
-	template = get_template('reserva.html')
-	variables = Context({
-		'reserva': reserva
+
+def reserva(request, idres=1, format=None):
+	reserva = Reserva.objects.get(id=1)
+	if format is None or format == 'html':
+		template = get_template('reserva.html')
+		variables = Context({
+			'reserva': reserva
 		})
-	output = template.render(variables)
-	return HttpResponse(output)
+		output = template.render(variables)
+		return HttpResponse(output)
+	elif format == 'json':
+		data = serializers.serialize('json', [reserva])
+		return HttpResponse(data, mimetype='application/json')
+	elif format == 'xml':
+		data = serializers.serialize('xml', [reserva])
+		return HttpResponse(data, mimetype='application/xml')
 
 
 def habitacions(request, format=None):
 	habitacions = Habitacio.objects.all()
-	template = get_template('habitacions.html')
-	variables = Context({
-		'habitacions': habitacions
-		})
-	output = template.render(variables)
-	return HttpResponse(output)
+	if format is None or format == 'html':
+		template = get_template('habitacions.html')
+		variables = Context({
+			'habitacions': habitacions
+			})
+		output = template.render(variables)
+		return HttpResponse(output)
+	elif format == 'json':
+		data = serializers.serialize('json', habitacions)
+		return HttpResponse(data, mimetype='application/json')
+	elif format == 'xml':
+		data = serializers.serialize('xml', habitacions)
+		return HttpResponse(data, mimetype='application/xml')
+
 
 def habitacio(request, idhab, format=None):
 	habitacio = Habitacio.objects.get(id=idhab)
-	template = get_template('habitacio.html')
-	variables = Context({
-		'habitacio': habitacio
-		})
-	output = template.render(variables)
-	return HttpResponse(output)
-
+	if format is None or format == 'html':
+		template = get_template('habitacio.html')
+		variables = Context({
+			'habitacio': habitacio
+			})
+		output = template.render(variables)
+		return HttpResponse(output)
+	elif format == 'json':
+		data = serializers.serialize('json', [habitacio])
+		return HttpResponse(data, mimetype='application/json')
+	elif format == 'xml':
+		data = serializers.serialize('xml', [habitacio])
+		return HttpResponse(data, mimetype='application/xml')
 
 def clients(request, format=None):
 	clients = Client.objects.all()
-	template = get_template('clients.html')
-	variables = Context({
-		'clients': clients
-		})
-	output = template.render(variables)
-	return HttpResponse(output)
+	if format is None or format == 'html':
+		template = get_template('clients.html')
+		variables = Context({
+			'clients': clients
+			})
+		output = template.render(variables)
+		return HttpResponse(output)
+	elif format == 'json':
+		data = serializers.serialize('json', clients)
+		return HttpResponse(data, mimetype='application/json')
+	elif format == 'xml':
+		data = serializers.serialize('xml', clients)
+		return HttpResponse(data, mimetype='application/xml')
 
 
 def client(request, idcli, format=None):
 	client = Client.objects.get(id = idcli)
-	template = get_template('client.html')
-	variables = Context({
-		'client': client
-		})
-	output = template.render(variables)
-	return HttpResponse(output)
+	if format is None or format == 'html':
+		template = get_template('client.html')
+		variables = Context({
+			'client': client
+			})
+		output = template.render(variables)
+		return HttpResponse(output)
+	elif format == 'json':
+		data = serializers.serialize('json', [client])
+		return HttpResponse(data, mimetype='application/json')
+	elif format == 'xml':
+		data = serializers.serialize('xml', [client])
+		return HttpResponse(data, mimetype='application/xml')
 
 
 def hostals(request, format=None):
 	hostals = Hostal.objects.all()
-	template = get_template('hostals.html')
-	variables = Context({
-		'hostals': hostals
-		})
-	output = template.render(variables)
-	return HttpResponse(output)
+	if format is None or format == 'html':
+		template = get_template('hostals.html')
+		variables = Context({
+			'hostals': hostals
+			})
+		output = template.render(variables)
+		return HttpResponse(output)
+	elif format == 'json':
+		data = serializers.serialize('json', hostals)
+		return HttpResponse(data, mimetype='application/json')
+	elif format == 'xml':
+		data = serializers.serialize('xml', hostals)
+		return HttpResponse(data, mimetype='application/xml')
 
 def hostal(request, idhos, format=None):
 	hostal = Hostal.objects.get(id =idhos)
-	template = get_template('hostal.html')
-	variables = Context({
-		'hostal': hostal
-		})
-	output = template.render(variables)
-	return HttpResponse(output)
+	if format is None or format == 'html':
+		template = get_template('hostal.html')
+		variables = Context({
+			'hostal': hostal
+			})
+		output = template.render(variables)
+		return HttpResponse(output)
+	elif format == 'json':
+		data = serializers.serialize('json', [hostal])
+		return HttpResponse(data, mimetype='application/json')
+	elif format == 'xml':
+		data = serializers.serialize('xml', [hostal])
+		return HttpResponse(data, mimetype='application/xml')
 	
 def nou_usuari(request):
 	if request.method=='POST':
