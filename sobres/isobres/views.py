@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 from django.db import models
 from isobres.models import *
 from django.core import serializers
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
     
 def mainpage(request):
 	template = get_template('mainpage.html')
@@ -125,3 +129,13 @@ def hostal(request, idhos, format=None):
 		})
 	output = template.render(variables)
 	return HttpResponse(output)
+	
+def nou_usuari(request):
+	if request.method=='POST':
+		formulari = UserCreationForm(request.POST)
+		if formulari.is_valid:
+			formulari.save()
+			return HttpResponseRedirect('/')
+	else:
+		formulari = UserCreationForm()
+		return render_to_response('nouusuari.html',{'formulari':formulari},context_instance=RequestContext(request))
