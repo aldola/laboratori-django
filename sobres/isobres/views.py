@@ -13,10 +13,14 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.core.context_processors import csrf
+from django.http import HttpResponseRedirect
 
 from forms import SignUpForm
  
- 
+def cerrar(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
 def signup(request):
     if request.method == 'POST':  # If the form has been submitted...
         form = SignUpForm(request.POST)  # A form bound to the POST data
@@ -38,8 +42,11 @@ def signup(request):
  
             # Save new user attributes
             user.save()
- 
-            return HttpResponseRedirect(/)  # Redirect after POST
+
+            cli = Client(nom=user)
+            cli.save()
+
+            return HttpResponseRedirect('/login')  # Redirect after POST
     else:
         form = SignUpForm()
  
