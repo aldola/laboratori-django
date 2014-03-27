@@ -10,6 +10,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 from django.core.context_processors import csrf
     
 def mainpage(request):
