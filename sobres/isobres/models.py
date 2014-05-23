@@ -14,7 +14,6 @@ class Client(models.Model):
 	nom = models.ForeignKey(User)
 	direccio = models.TextField(max_length=100)
 	telefon = models.CharField(max_length=100)
-	pais = models.TextField(blank=True, null=True)
 	def __unicode__(self):
 		return self.nom.username
 

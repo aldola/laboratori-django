@@ -21,17 +21,6 @@ def cerrar(request):
     logout(request)
     return HttpResponseRedirect('/')
 
-def client_sub(request,idres):
-	if request.method == 'POST':
-		form = SignUpForm(request.POST)
-		if form.is_valid():
-			client = Client.objects.get(nom=idres)
-			client.direccio = form.cleaned_data["direccio"] 
-			client.telefon = form.cleaned_data["telefon"]
-			client.pais = form.cleaned_data["pais"]
-			client.save()
-	return HttpResponseRedirect('/')
-
 def create(request):
     if request.method == 'POST':  # If the form has been submitted...
         form = CreateForm(request.POST)  # A form bound to the POST data
@@ -75,12 +64,8 @@ def signup(request):
 
             cli = Client(nom=user)
             cli.save()
-            template = get_template('signup.html')
-            variables = Context({
-                'user': user
-            })
-            output = template.render(variables)
-            return HttpResponseRedirect(output)  # Redirect after POST
+
+            return HttpResponseRedirect('/')  # Redirect after POST
     else:
         form = SignUpForm()
  

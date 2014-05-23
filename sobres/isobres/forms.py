@@ -11,10 +11,6 @@ class SignUpForm(ModelForm):
         widgets = {
             'password': forms.PasswordInput(),
         }
-class CreateClient(ModelForm):
-    class Meta:
-        model = Client 
-        fields = ['telefon', 'pais', 'direccio']
 
 
 class CreateForm(ModelForm):
