@@ -7,12 +7,31 @@
     {% if reserves %}
     <ul>
     {% for reserva in reserves %}
+    {% if reserva.confirmada == False %}
     <li>
     {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
-    <a href="/"> tornar </a>
+    <br>
+    No Confirmada
     </li>
+    {% else %}
+    <li>
+    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    <br>
+    {% if reserva.qualificacio != 6 %}
+    Confirmada - {{reserva.qualificacio}}/5
+    {% else %}
+    Confirmada - Sense Qualificar
+    {% endif %}
+    {% if reserva.comentari_qualificacio != "" %}
+     - {{reserva.comentari_qualificacio}}
+    {% else %}
+     - Sense Comentari
+    {% endif %}
+    </li>
+    {% endif %}
     {% endfor %}
     </ul>
+    <a href="/"> tornar </a>
     {% else %}
     <p>No ha realitzat cap reserva.</p>
     <a href="/"> tornar </a>

@@ -6,18 +6,28 @@
     <h1>{{ pagetitle }}</h1>
     {% if user.username %}
     <p>Benvingut {{ user.username }}! <BR>
-    Aquí podrà gestionar les teves <a href="/user/{{ user }}">reserves</a>!</p>
+    <!-- Aquí podrà gestionar les teves <a href="/user/{{ user }}">reserves</a>!</p> -->
+    Aquí podrà gestionar les teves reserves:</p>
+    <a href="/user/{{ user }}">· Llistar reserves</a>
+    <BR>
+    <a href="/create">· Nova Reserva</a>
+    <BR>
+    <a href="/edit">· Editar Reserva</a>
+    <BR>
+    <a href="/delete">· Eliminar Reserva</a>
+    <BR>
+    <a href="/qualify">· Qualificar Estància</a>
+    <BR>
+    <BR>
+    <a href="/view">· Veure qualificacions</a>
+    <BR>
+    <BR>
     <a href="/logout">logout</a></p>
     {% else %}
     <p>Usuari no identificat: <BR>
     Obligatori <a href="/login/"> identificarse </a> per gestionar Reserves. <BR>
     Si no estas registrat pots <a href="/signup"> registrarte </a>.
     {% endif %}
-    <Br>llistar entitats:<br>
-    <a href="/clients"> clients </a><br>
-    <a href="/hostals"> hostals </a><br>
-    <a href="/reserves"> reserves </a><br>
-    <a href="/habitacions"> habitacions </a><br>
     </p>
   </body>
 </html>
