@@ -1,4 +1,5 @@
 <html>
+  <span vocab="http://schema.org/" typeof="Hostal"></span>
   <head>
     <title>{{ username }} Reserves</title>
   </head>
@@ -9,6 +10,7 @@
     {% for reserva in reserves %}
     {% if reserva.confirmada == False %}
     <li>
+    <span property="name">{{reserva.habitacio.hostal.nom}}</span>
     {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
     <br>
     No Confirmada
