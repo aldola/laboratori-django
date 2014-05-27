@@ -18,6 +18,7 @@
     {% else %}
     <li>
     {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    <span property="publishDate">{{reserva.data_sort}}</span>
     <br>
     {% if reserva.qualificacio != 6 %}
     Confirmada - {{reserva.qualificacio}}/5
