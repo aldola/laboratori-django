@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>{{ username }} Veure Qualificacions</title>
+  </head>
+  <body>
+    <span   vocab="http://schema.org/"  typeof="Hostel">
+    <h1> Qualificacions i Comentaris dels usuaris</h1>
+    {% if reserves %}
+    {% for hostal in hostals %}
+    <li typeof="Hostel">
+    <span   property="name"  content="{{ hostal.nom }}"></span> 
+    <span   property="address"  content="{{ hostal.direccio }}"></span> 
+    <span   property="telephone"  content="{{ hostal.telefon }}"></span> 
+    <h3> Qualificacions de {{ hostal.nom }} </h3>
+    <ul rel="review">
+    {% for reserva in reserves %}
+    {% if reserva.confirmada == True and reserva.habitacio.hostal.nom == hostal.nom %}
+    <li typeof="Review">
+    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}}
+    <br>
+    {% if reserva.qualificacio != 6 %}
+            <p rel="reviewRating"  typeof="Rating">    
+                <span   property="worstRating"  content="0"></span> 
+                <span   property="ratingValue" content="{{ reserva.qualificacio }}"> </span>   
+                <span   property="bestRating"   content="5"></span> 
+            </p>    
+    Qualificació: {{reserva.qualificacio}}/5
+    {% else %}
+    Qualificació: - Sense Qualificar
+    {% endif %}
+    <br>
+    {% if reserva.comentari_qualificacio != "" %}
+            <p  property="description">{{ reserva.comentari_qualificacio }}</p>  
+    Comentari: {{reserva.comentari_qualificacio}}
+    {% else %}
+    Comentari: Sense Comentari
+    {% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+    {% endfor %}
+    </ul>
+    <a href="/"> tornar </a>
+    {% else %}
+    <p>No ha realitzat cap reserva.</p>
+    <a href="/"> tornar </a>
+    {% endif %}
+    </span>
+  </body>
+</html>
