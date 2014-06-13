@@ -6,15 +6,9 @@
     <span   vocab="http://schema.org/"  typeof="Hostel">
     <h1> Qualificacions i Comentaris dels usuaris</h1>
     {% if reserves %}
-    {% for hostal in hostals %}
-    <li typeof="Hostel">
-    <span   property="name"  content="{{ hostal.nom }}"></span> 
-    <span   property="address"  content="{{ hostal.direccio }}"></span> 
-    <span   property="telephone"  content="{{ hostal.telefon }}"></span> 
-    <h3> Qualificacions de {{ hostal.nom }} </h3>
     <ul rel="review">
     {% for reserva in reserves %}
-    {% if reserva.confirmada == True and reserva.habitacio.hostal.nom == hostal.nom %}
+    {% if reserva.confirmada == True %}
     <li typeof="Review">
     {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}}
     <br>
@@ -37,8 +31,6 @@
     {% endif %}
     </li>
     {% endif %}
-    {% endfor %}
-    </ul>
     {% endfor %}
     </ul>
     <a href="/"> tornar </a>
