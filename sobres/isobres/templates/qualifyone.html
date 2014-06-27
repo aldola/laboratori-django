@@ -1,0 +1,23 @@
+   {% if form.errors %}
+        <p> {{ form.errors }} </p>
+    {% endif %}
+ 
+    <h1>Qualificar Reserva</h1>
+    <form method="post" action="">
+ 
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{ form.qualificacio.label_tag }} (entre 0 i 5)</td>
+                <td>{{ form.qualificacio }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.comentari_qualificacio.label_tag }} </td>
+                <td>{{ form.comentari_qualificacio }}</td>
+            </tr>
+        </table>
+ 
+        <input type="submit" value="Actualitzar"/>
+        <BR>
+        <a href="/"> Tornar </a>
+    </form>
