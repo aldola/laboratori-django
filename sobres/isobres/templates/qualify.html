@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>{{ username }} Reserves</title>
+  </head>
+  <body>
+    <h1>Reserves fetes per {{ username }} (Confirmades i pasades)</h1>
+    {% if reserves %}
+    <ul>
+    {% for reserva in reserves %}
+    {% if reserva.confirmada == True %}
+    {% if reserva.qualificacio == 6 and reserva.comentari_qualificacio == "" %}
+    <li>
+    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    <br>
+    {% if reserva.qualificacio != 6 %}
+    Confirmada - {{reserva.qualificacio}}/5
+    {% else %}
+    Confirmada - Sense Qualificar
+    {% endif %}
+    {% if reserva.comentari_qualificacio != "" %}
+     - {{reserva.comentari_qualificacio}}
+    {% else %}
+     - Sense Comentari
+    {% endif %}
+    <br>
+    <a href="/qualify/{{reserva.pk}}"> qualify </a>
+    </li>
+    {% else %}
+    <li>
+    {{reserva.habitacio.hostal.nom}} - {{reserva.habitacio.numero_habitacio}} - {{ reserva.data_ent}} - {{ reserva.data_sort}}
+    <br>
+    {% if reserva.qualificacio != 6 %}
+    Confirmada - {{reserva.qualificacio}}/5
+    {% else %}
+    Confirmada - Sense Qualificar
+    {% endif %}
+    {% if reserva.comentari_qualificacio != "" %}
+     - {{reserva.comentari_qualificacio}}
+    {% else %}
+     - Sense Comentari
+    {% endif %}
+    <br>
+    <a href="/qualify/{{reserva.pk}}"> edit </a>
+    </li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+    </ul>
+    <a href="/"> tornar </a>
+    {% else %}
+    <p>No ha realitzat cap reserva.</p>
+    <a href="/"> tornar </a>
+    {% endif %}
+  </body>
+</html>
